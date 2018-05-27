@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new PlayerFragment(), "Player");
         adapter.addFragment(new Tab3Fragment(), "TAB3");
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1 /* Player */);
     }
 
 }
