@@ -1,6 +1,6 @@
 package com.example.domagoj.radiostudentapp;
 
-import android.content.pm.ActivityInfo;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -33,6 +33,9 @@ import saschpe.exoplayer2.ext.icy.IcyHttpDataSourceFactory;
 public class PlayerFragment extends Fragment {
     private ImageButton b_play_pause;
     private TextView textView;
+    ImageButton imageButton1;
+    ImageButton imageButton2;
+    ImageButton imageButton3;
 
     private ExoPlayer player;
     private boolean prepared = false;
@@ -40,19 +43,28 @@ public class PlayerFragment extends Fragment {
     private IcyHttpDataSourceFactory icyHttpDataSourceFactory;
     private ExtractorsFactory extractorsFactory;
     private IcyHttpData icyHttpData;
-    private View view;
+    // private View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.player_fragment, container, false);
+        View view = inflater.inflate(R.layout.player_fragment, container, false);
 
         b_play_pause = (ImageButton) view.findViewById(R.id.b_play_pause);
         textView = view.findViewById(R.id.textView);
         textView.setEnabled(true);
         initializePlayer();
-        new PlayerTask().execute(RadioConstants.HTTP_STREAM_AAC);
+        imageButton1 = view.findViewById(R.id.imageButton1);
+        imageButton1.setImageResource(R.drawable.facebooklogo);
+
+        imageButton2 = view.findViewById(R.id.imageButton2);
+        imageButton2.setImageResource(R.drawable.instagramlogo);
+
+        imageButton3 = view.findViewById(R.id.imageButton3);
+        imageButton3.setImageResource(R.drawable.soundcloudlogo);
+
+        new PlayerTask().execute(RadioConstants.STREAM_URI);
         b_play_pause.setOnClickListener(v -> {
             if(started){
                 started = false;
@@ -67,6 +79,18 @@ public class PlayerFragment extends Fragment {
                 b_play_pause.setImageResource(R.drawable.pause);
                 //b_play_pause.setText("PAUSE");
             }
+        });
+        imageButton1.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(RadioConstants.FACEBOOKU_RI));
+            startActivity(intent);
+        });
+        imageButton2.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(RadioConstants.INSTAGRAM_URI));
+            startActivity(intent);
+        });
+        imageButton3.setOnClickListener(v ->  {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(RadioConstants.MIXCLOUD_URI));
+            startActivity(intent);
         });
 
         return view;
@@ -136,7 +160,7 @@ public class PlayerFragment extends Fragment {
         TrackSelector trackSelector = new DefaultTrackSelector(
                 new AdaptiveTrackSelection.Factory(new DefaultBandwidthMeter()));
         //Initialize the player
-        player = ExoPlayerFactory.newSimpleInstance(view.getContext(), trackSelector);
+        player = ExoPlayerFactory.newSimpleInstance(this.getContext(), trackSelector);
         // Produces Extractor instances for parsing the media data.
         extractorsFactory = new DefaultExtractorsFactory();
 
@@ -144,7 +168,7 @@ public class PlayerFragment extends Fragment {
         icyHttpData = new IcyHttpData(s -> textView.setText(s));
         // Custom HTTP data source factory which requests Icy metadata and parses it if
         // the stream server supports it
-        String userAgent = Util.getUserAgent(view.getContext(), RadioConstants.APPLICATION_NAME);
+        String userAgent = Util.getUserAgent(this.getContext(), RadioConstants.APPLICATION_NAME);
         icyHttpDataSourceFactory = new IcyHttpDataSourceFactory.Builder(userAgent)
                 .setIcyHeadersListener(icyHttpData::iceHeader)
                 .setIcyMetadataChangeListener(icyHttpData::icyMetadata)
