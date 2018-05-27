@@ -43,6 +43,7 @@
         android:background="@null"
         android:scaleType="fitCenter"
 
+        android:src="@drawable/play"
         android:text="@string/play"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,16 +61,6 @@
         android:animateLayoutChanges="false"
         android:visibility="invisible" />
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="99dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/radiostudent_logo" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -93,7 +84,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="... loading ..."
         android:textColor="@color/exo_edit_mode_background_color"
         android:textSize="18sp"
@@ -103,9 +93,7 @@
         app:layout_constraintBottom_toTopOf="@+id/b_play_pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -116,7 +104,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="UPRAVO SVIRA:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/exo_edit_mode_background_color"
@@ -127,8 +114,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.725"
         tools:text="UPRAVO SVIRA: " />
 
     <ImageButton

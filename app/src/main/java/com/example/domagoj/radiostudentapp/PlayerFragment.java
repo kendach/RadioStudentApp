@@ -52,6 +52,7 @@ public class PlayerFragment extends Fragment {
         View view = inflater.inflate(R.layout.player_fragment, container, false);
 
         b_play_pause = (ImageButton) view.findViewById(R.id.b_play_pause);
+        // b_play_pause.setImageResource(R.drawable.play);
         textView = view.findViewById(R.id.textView);
         textView.setEnabled(true);
         initializePlayer();
