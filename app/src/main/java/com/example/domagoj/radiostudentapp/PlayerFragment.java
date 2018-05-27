@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.util.Util;
 import saschpe.exoplayer2.ext.icy.IcyHttpDataSourceFactory;
 
 /**
- * Created by User on 2/28/2017.
+ * Created by Kenda on 4/10/2018.
  */
 
 public class PlayerFragment extends Fragment {
