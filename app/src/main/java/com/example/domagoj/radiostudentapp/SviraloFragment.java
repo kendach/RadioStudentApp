@@ -69,8 +69,6 @@ public class SviraloFragment extends Fragment {
             textView.setText("Jsoup: IOException");
         }
 
-        // Gson gson = new Gson();
-
         String str = null;
         try
         {
@@ -110,6 +108,8 @@ public class SviraloFragment extends Fragment {
         try {
             // Connect to the web site
             desc = Jsoup.connect(RS_PLAY_LIST_URI).ignoreContentType(true).execute().body();
+            // Gson gson = new Gson();
+
             /*
             Document document = Jsoup.connect(RS_PLAY_LIST_URI).get();
             // Using Elements to get the Meta data
