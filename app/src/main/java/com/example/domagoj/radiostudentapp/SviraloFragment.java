@@ -49,7 +49,7 @@ public class SviraloFragment extends Fragment {
         refresh.setOnClickListener(v -> new Description().execute());
 
         textView = (TextView) view.findViewById(R.id.listSviralo);
-        textView.setText(" idem po JSON ");
+        textView.setText(" ...Sviralo je... ");
         /*
         String json = readJSONFeed(RS_PLAY_LIST_URI);
         Log.i("importFomJson", String.format("NJSON: " + json));
@@ -91,7 +91,7 @@ public class SviraloFragment extends Fragment {
     protected void onPreExecute() {
         super.onPreExecute();
         mProgressDialog = new ProgressDialog(view.getContext());
-        mProgressDialog.setTitle("Android Basic JSoup Tutorial");
+        //mProgressDialog.setTitle("Android Basic JSoup Tutorial");
         mProgressDialog.setMessage("Loading...");
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.show();

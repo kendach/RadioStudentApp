@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical">
 
     <Button
+        android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/refresh"
-        android:text="Osvježi"/>
+        android:text="Osvježi" />
 
     <TextView
+        android:id="@+id/listSviralo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/refresh"
         android:layout_centerHorizontal="true"
-        android:textSize="25sp"
+        android:background="@color/colorBlack"
         android:text="(sviralo je)"
-        android:layout_marginTop="40dp"
-        android:id="@+id/listSviralo"/>
+        android:textColor="@color/exo_edit_mode_background_color"
+        android:textSize="16sp" />
 
 </RelativeLayout>
