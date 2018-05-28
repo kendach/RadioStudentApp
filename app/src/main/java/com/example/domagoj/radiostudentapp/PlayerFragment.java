@@ -54,7 +54,7 @@ public class PlayerFragment extends Fragment {
         b_play_pause = (ImageButton) view.findViewById(R.id.b_play_pause);
         // b_play_pause.setImageResource(R.drawable.play);
         textView = view.findViewById(R.id.textView);
-        textView.setEnabled(true);
+        // textView.setEnabled(true);
         initializePlayer();
         imageButton1 = view.findViewById(R.id.imageButton1);
         imageButton1.setImageResource(R.drawable.facebooklogo);

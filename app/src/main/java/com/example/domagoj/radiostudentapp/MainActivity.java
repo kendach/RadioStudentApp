@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new VijestiFragment(), "Vijesti");
         adapter.addFragment(new PlayerFragment(), "Player");
-        adapter.addFragment(new Tab3Fragment(), "TAB3");
+        adapter.addFragment(new SviraloFragment(), "Sviralo");
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(1 /* Player */);
     }
