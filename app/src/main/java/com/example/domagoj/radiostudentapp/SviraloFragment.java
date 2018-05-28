@@ -12,23 +12,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.domagoj.radiostudentapp.pojos.SviraloRoot;
+import com.example.domagoj.radiostudentapp.pojos.SviraloRow;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
+import org.jsoup.helper.StringUtil;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.UnknownHostException;
-
-import javax.net.ssl.HttpsURLConnection;
+import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by User on 2/28/2017.
@@ -90,8 +85,7 @@ public class SviraloFragment extends Fragment {
     }
 
     // Description AsyncTask
-    private class Description extends AsyncTask<Void, Void, Void> {
-        String desc;
+    private class Description extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPreExecute() {
@@ -104,12 +98,11 @@ public class SviraloFragment extends Fragment {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected String doInBackground(Void... params) {
+        String desc = null;
         try {
             // Connect to the web site
             desc = Jsoup.connect(RS_PLAY_LIST_URI).ignoreContentType(true).execute().body();
-            // Gson gson = new Gson();
-
             /*
             Document document = Jsoup.connect(RS_PLAY_LIST_URI).get();
             // Using Elements to get the Meta data
@@ -121,15 +114,33 @@ public class SviraloFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return desc;
     }
 
     @Override
-    protected void onPostExecute(Void result) {
+    protected void onPostExecute(String result) {
         // Set description into TextView
         // TextView txtdesc = (TextView) findViewById(R.id.desctxt);
-        textView.setText(desc);
+        Gson gson = new Gson();
+        SviraloRoot sviraloRoot = gson.fromJson(result, SviraloRoot.class);
+
+        textView.setText(joinRows(sviraloRoot.getRows()));
         mProgressDialog.dismiss();
+    }
+
+    private String joinRows(List<SviraloRow> rows)
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        String delimiter = "";
+        for (SviraloRow row : rows) {
+            stringBuilder
+                    .append(delimiter)
+                    .append(row.getPlayedTime())
+                    .append(" ")
+                    .append(row.getPlayedSong());
+            delimiter = "\n";
+        }
+        return stringBuilder.toString();
     }
 }
 
