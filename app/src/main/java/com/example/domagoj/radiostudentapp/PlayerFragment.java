@@ -33,16 +33,12 @@ import saschpe.exoplayer2.ext.icy.IcyHttpDataSourceFactory;
 public class PlayerFragment extends Fragment {
     private ImageButton b_play_pause;
     private TextView textView;
-    ImageButton imageButton1;
-    ImageButton imageButton2;
-    ImageButton imageButton3;
 
     private ExoPlayer player;
     private boolean prepared = false;
     private boolean started = false;
     private IcyHttpDataSourceFactory icyHttpDataSourceFactory;
     private ExtractorsFactory extractorsFactory;
-    private IcyHttpData icyHttpData;
     // private View view;
 
     @Nullable
@@ -51,18 +47,18 @@ public class PlayerFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.player_fragment, container, false);
 
-        b_play_pause = (ImageButton) view.findViewById(R.id.b_play_pause);
+        b_play_pause = view.findViewById(R.id.b_play_pause);
         // b_play_pause.setImageResource(R.drawable.play);
         textView = view.findViewById(R.id.textView);
         // textView.setEnabled(true);
         initializePlayer();
-        imageButton1 = view.findViewById(R.id.imageButton1);
+        ImageButton imageButton1 = view.findViewById(R.id.imageButton1);
         imageButton1.setImageResource(R.drawable.facebooklogo);
 
-        imageButton2 = view.findViewById(R.id.imageButton2);
+        ImageButton imageButton2 = view.findViewById(R.id.imageButton2);
         imageButton2.setImageResource(R.drawable.instagramlogo);
 
-        imageButton3 = view.findViewById(R.id.imageButton3);
+        ImageButton imageButton3 = view.findViewById(R.id.imageButton3);
         imageButton3.setImageResource(R.drawable.soundcloudlogo);
 
         new PlayerTask().execute(RadioConstants.STREAM_URI);
@@ -128,7 +124,7 @@ public class PlayerFragment extends Fragment {
         }
     }
 
-    class PlayerTask extends AsyncTask<String, Void, Boolean> {
+    private class PlayerTask extends AsyncTask<String, Void, Boolean> {
 
         @Override
         protected Boolean doInBackground(String... strings) {
@@ -166,7 +162,7 @@ public class PlayerFragment extends Fragment {
         extractorsFactory = new DefaultExtractorsFactory();
 
         // Dodano za: ExoPlayer2 Shoutcast Metadata Protocol (ICY) extension
-        icyHttpData = new IcyHttpData(s -> textView.setText(s));
+        IcyHttpData icyHttpData = new IcyHttpData(s -> textView.setText(s));
         // Custom HTTP data source factory which requests Icy metadata and parses it if
         // the stream server supports it
         String userAgent = Util.getUserAgent(this.getContext(), RadioConstants.APPLICATION_NAME);

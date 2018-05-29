@@ -16,14 +16,10 @@ import com.example.domagoj.radiostudentapp.pojos.SviraloRoot;
 import com.example.domagoj.radiostudentapp.pojos.SviraloRow;
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.jsoup.Jsoup;
-import org.jsoup.helper.StringUtil;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by Kenda on 4/28/2018.
@@ -32,7 +28,6 @@ import java.util.StringJoiner;
 public class SviraloFragment extends Fragment {
     private static final String RS_PLAY_LIST_URI ="http://www.radiostudent.hr/wp-admin/admin-ajax.php?action=rsplaylist_api";
 
-    private Button refresh;
     private View view;
     private ProgressDialog mProgressDialog;
     private TextView textView;
@@ -44,11 +39,11 @@ public class SviraloFragment extends Fragment {
         Log.i("importFomJson", String.format("onCreateView: "));
         view = inflater.inflate(R.layout.sviralo_fragment,container,false);
 
-        refresh = (Button) view.findViewById(R.id.refresh);
+        Button refresh = view.findViewById(R.id.refresh);
         // Execute Description AsyncTask
         refresh.setOnClickListener(v -> new Description().execute());
 
-        textView = (TextView) view.findViewById(R.id.listSviralo);
+        textView = view.findViewById(R.id.listSviralo);
         textView.setText(" ...Sviralo je... ");
         /*
         String json = readJSONFeed(RS_PLAY_LIST_URI);

@@ -1,12 +1,10 @@
 package com.example.domagoj.radiostudentapp;
 
-import android.util.Log;
-
 import com.example.domagoj.radiostudentapp.util.MyConsumer;
 
 import saschpe.exoplayer2.ext.icy.IcyHttpDataSource;
 
-public class IcyHttpData {
+class IcyHttpData {
     private final MyConsumer<String> consumer;
     private IcyHttpDataSource.IcyHeaders icyHeaders;
     private IcyHttpDataSource.IcyMetadata icyMetadata;

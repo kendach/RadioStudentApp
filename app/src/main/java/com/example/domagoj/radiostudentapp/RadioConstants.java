@@ -1,6 +1,6 @@
 package com.example.domagoj.radiostudentapp;
 
-public class RadioConstants
+class RadioConstants
 {
     // koristi se kod UserAgenta za ExoPlayer
     public static final String APPLICATION_NAME = "RadioStudentExoplayer";
