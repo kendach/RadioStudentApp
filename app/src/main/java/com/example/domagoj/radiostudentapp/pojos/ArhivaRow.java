@@ -4,7 +4,7 @@ package com.example.domagoj.radiostudentapp.pojos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SviraloRow {
+public class ArhivaRow {
 
     @SerializedName("redni")
     @Expose

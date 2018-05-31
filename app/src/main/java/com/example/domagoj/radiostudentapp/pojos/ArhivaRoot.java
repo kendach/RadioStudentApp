@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SviraloRoot {
+public class ArhivaRoot {
 
     @SerializedName("success")
     @Expose
@@ -15,7 +15,7 @@ public class SviraloRoot {
     private String sql;
     @SerializedName("rows")
     @Expose
-    private List<SviraloRow> rows = null;
+    private List<ArhivaRow> rows = null;
 
     public String getSuccess() {
         return success;
@@ -33,11 +33,11 @@ public class SviraloRoot {
         this.sql = sql;
     }
 
-    public List<SviraloRow> getRows() {
+    public List<ArhivaRow> getRows() {
         return rows;
     }
 
-    public void setRows(List<SviraloRow> rows) {
+    public void setRows(List<ArhivaRow> rows) {
         this.rows = rows;
     }
 

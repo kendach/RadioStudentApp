@@ -12,7 +12,7 @@ public class ProgramRoot {
     private String success;
     @SerializedName("rows")
     @Expose
-    private List<Row> rows = null;
+    private List<ProgramRow> rows = null;
 
     public String getSuccess() {
         return success;
@@ -22,11 +22,11 @@ public class ProgramRoot {
         this.success = success;
     }
 
-    public List<Row> getRows() {
+    public List<ProgramRow> getRows() {
         return rows;
     }
 
-    public void setRows(List<Row> rows) {
+    public void setRows(List<ProgramRow> rows) {
         this.rows = rows;
     }
 

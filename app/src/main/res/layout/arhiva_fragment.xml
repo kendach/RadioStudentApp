@@ -7,19 +7,19 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/refresh"
+        android:id="@+id/refreshArhiva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Osvježi" />
+        android:text="@string/refresh" />
 
     <TextView
-        android:id="@+id/listSviralo"
+        android:id="@+id/listArhiva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/refresh"
+        android:layout_below="@+id/refreshArhiva"
         android:layout_centerHorizontal="true"
         android:background="@color/colorBlack"
-        android:text="(sviralo je)"
+        android:text="@string/arhiva"
         android:textColor="@color/exo_edit_mode_background_color"
         android:textSize="16sp" />
 

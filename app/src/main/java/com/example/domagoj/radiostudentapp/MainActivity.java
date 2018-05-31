@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new VijestiFragment(), "Vijesti");
-        adapter.addFragment(new PlayerFragment(), "Player");
-        adapter.addFragment(new SviraloFragment(), "Sviralo");
+        adapter.addFragment(new ProgramFragment(), getString(R.string.program));
+        adapter.addFragment(new PlayerFragment(), getString(R.string.player));
+        adapter.addFragment(new ArhivaFragment(), getString(R.string.arhiva));
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(1 /* Player */);
     }
