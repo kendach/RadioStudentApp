@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorBlack">
+    app:srcCompat="@color/colorBlack">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +14,7 @@
         android:text="Vijesti"
         android:layout_marginTop="40dp"
         android:id="@+id/textTab1"
-        android:background="@color/colorBlack"
+        app:srcCompat="@color/colorBlack"
         android:textColor="@color/exo_edit_mode_background_color"/>
 
     <Button
