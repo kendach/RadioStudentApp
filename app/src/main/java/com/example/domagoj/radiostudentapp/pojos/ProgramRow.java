@@ -32,7 +32,7 @@ public class ProgramRow {
     private String startTime;
     @SerializedName("start_ts")
     @Expose
-    private Integer startTs;
+    private String startTs;
     @SerializedName("end")
     @Expose
     private String end;
@@ -41,7 +41,7 @@ public class ProgramRow {
     private String endTime;
     @SerializedName("end_ts")
     @Expose
-    private Integer endTs;
+    private String endTs;
     @SerializedName("timing")
     @Expose
     private String timing;
@@ -113,11 +113,11 @@ public class ProgramRow {
         this.startTime = startTime;
     }
 
-    public Integer getStartTs() {
+    public String getStartTs() {
         return startTs;
     }
 
-    public void setStartTs(Integer startTs) {
+    public void setStartTs(String startTs) {
         this.startTs = startTs;
     }
 
@@ -137,11 +137,11 @@ public class ProgramRow {
         this.endTime = endTime;
     }
 
-    public Integer getEndTs() {
+    public String getEndTs() {
         return endTs;
     }
 
-    public void setEndTs(Integer endTs) {
+    public void setEndTs(String endTs) {
         this.endTs = endTs;
     }
 
