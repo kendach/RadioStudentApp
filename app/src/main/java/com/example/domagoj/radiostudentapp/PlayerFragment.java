@@ -162,13 +162,13 @@ public class PlayerFragment extends Fragment {
         extractorsFactory = new DefaultExtractorsFactory();
 
         // Dodano za: ExoPlayer2 Shoutcast Metadata Protocol (ICY) extension
-        IcyHttpData icyHttpData = new IcyHttpData(s -> textView.setText(s));
+        // IcyHttpData icyHttpData = new IcyHttpData(s -> textView.setText(s));
         // Custom HTTP data source factory which requests Icy metadata and parses it if
         // the stream server supports it
         String userAgent = Util.getUserAgent(this.getContext(), RadioConstants.APPLICATION_NAME);
         icyHttpDataSourceFactory = new IcyHttpDataSourceFactory.Builder(userAgent)
-                .setIcyHeadersListener(icyHttpData::iceHeader)
-                .setIcyMetadataChangeListener(icyHttpData::icyMetadata)
+                // .setIcyHeadersListener(i -> {})
+                .setIcyMetadataChangeListener(i -> textView.setText(i.getStreamTitle()))
                 .build();
     }
 
